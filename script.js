@@ -6,7 +6,7 @@ let currentRoundNumber = 1;
 const generateTarget = () => Math.floor(Math.random()*9);
 
 const compareGuesses = (humanGuess, compGuess, secTarget) =>{
-  if(humanGuess - secTarget < compGuess - secTarget){
+  if((secTarget - humanGuess) || (secTarget + humanGuess) < (secTarget - compGuess) || (secTarget + compGuess)){
     return true;
   } else{
     return false;
@@ -24,3 +24,4 @@ const updateScore = winner =>{
 const advanceRound = () =>{
   currentRoundNumber += 1;
 }
+
